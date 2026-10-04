@@ -19,6 +19,10 @@ jobs:
           python-version: "3.14"
       - name: Install dependencies
         run: pip install -r src/requeriments.txt
+      - name: realizar chequeo con linting
+
+        working-directory: src
+        run: ruff check .
       - name: Test con pytest
         working-directory: src
         run: pytest srs/test.py
