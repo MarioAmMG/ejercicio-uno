@@ -1,4 +1,6 @@
 class Calculator:
-    def sum(self, a =int , b = int):
-        return 0
+    @staticmethod
+    def sum(a: int, b: int) -> int:
+        return a + b
+
     
