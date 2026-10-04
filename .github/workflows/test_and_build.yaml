@@ -1,8 +1,8 @@
-name: Test and Build
+name: Test ans build
 
 on:
   push:
-    branches: ["master"]
+    branches: [ "master" ]
 
 permissions:
   contents: read
@@ -12,17 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Install dependencies
-        run: pip install -r src/requirements.txt
-      - name: realizar chequeo con linting
-        working-directory: src
-        run: ruff check .
-      - name: Test con pytest
-        run: pytest
-
-
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.14
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.14"
+    - name: Install dependencies
+      run: pip install -r src/requirements.txt
+    - name: Realizar un chequeo linting
+      working-directory: src
+      run: ruff check .
+    - name: Test con pytest
+      working-directory: src
+      run: pytest tests.py
